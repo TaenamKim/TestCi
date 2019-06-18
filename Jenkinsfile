@@ -4,7 +4,7 @@ pipeline {
     stage('cleanBuild') {
       steps {
         sh '''chmod 777 gradlew 
-gradlew clean build --stacktrace'''
+./gradlew clean build --stacktrace'''
       }
     }
   }
