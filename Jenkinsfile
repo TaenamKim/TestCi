@@ -1,9 +1,9 @@
 pipeline {
   agent any
   stages {
-    stage('assembleDebug') {
+    stage('cleanBuild') {
       steps {
-        sh 'sudo ./gradlew assembleDebug --stacktrace'
+        sh './gradlew clean build --stacktrace'
       }
     }
   }
