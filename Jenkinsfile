@@ -1,7 +1,7 @@
 pipeline {
   agent any
   stages {
-    stage('cleanBuild') {
+    stage('CleanBuild') {
       steps {
         sh '''chmod 777 gradlew 
 ./gradlew clean build --stacktrace'''
