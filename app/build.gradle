@@ -22,18 +22,18 @@ android {
         throw new FileNotFoundException("Could not read version.properties!")
     }
 
-    ext.autoIncrementBuildNumber = {
-        if (versionPropsFile.canRead()) {
-            def Properties versionProps = new Properties()
-            versionProps.load(new FileInputStream(versionPropsFile))
-            versionBuild = versionProps['VERSION_BUILD'].toInteger() + 1
-            println("versionBuild-2:" + versionBuild)
-            versionProps['VERSION_BUILD'] = versionBuild.toString()
-            versionProps.store(versionPropsFile.newWriter(), null)
-        } else {
-            throw new FileNotFoundException("Could not read version.properties!")
-        }
-    }
+//    ext.autoIncrementBuildNumber = {
+//        if (versionPropsFile.canRead()) {
+//            def Properties versionProps = new Properties()
+//            versionProps.load(new FileInputStream(versionPropsFile))
+//            versionBuild = versionProps['VERSION_BUILD'].toInteger() + 1
+//            println("versionBuild-2:" + versionBuild)
+//            versionProps['VERSION_BUILD'] = versionBuild.toString()
+//            versionProps.store(versionPropsFile.newWriter(), null)
+//        } else {
+//            throw new FileNotFoundException("Could not read version.properties!")
+//        }
+//    }
 
     println("versionBuild-3:" + versionBuild)
 
@@ -41,20 +41,20 @@ android {
         applicationId "com.xoska.testci"
         minSdkVersion 15
         targetSdkVersion 28
-        versionName "1.0"
+        versionName "0.1"
         versionCode versionBuild
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         setProperty("archivesBaseName", applicationId + "-v" + versionCode + "(" + versionName + ")")
     }
 
-    gradle.taskGraph.whenReady { taskGraph ->
-        if (taskGraph.hasTask(assembleDebug)) {
-            autoIncrementBuildNumber()
-        } else if (taskGraph.hasTask(assembleRelease)) {
-            autoIncrementBuildNumber()
-        }
-    }
+//    gradle.taskGraph.whenReady { taskGraph ->
+//        if (taskGraph.hasTask(assembleDebug)) {
+//            autoIncrementBuildNumber()
+//        } else if (taskGraph.hasTask(assembleRelease)) {
+//            autoIncrementBuildNumber()
+//        }
+//    }
 
     signingConfigs{
         releaseWithSignedKey {
