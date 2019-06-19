@@ -45,7 +45,8 @@ android {
         versionCode versionBuild
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        setProperty("archivesBaseName", applicationId + "-v" + versionCode + "(" + versionName + ")")
+        //com.xoska.testci-v5(0.2)-release.apk
+        setProperty("archivesBaseName", applicationId + "-v" + versionName + "." + versionCode)
     }
 
 //    gradle.taskGraph.whenReady { taskGraph ->
