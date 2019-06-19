@@ -9,7 +9,7 @@ pipeline {
     }
     stage('PostBuild') {
       steps {
-        sh 'ls -alF /data/jenkins-android-docker/workspace/TestCi_master/app/build/outputs/apk'
+        sh 'ls -alF /data/jenkins-android-docker/workspace'
       }
     }
   }
