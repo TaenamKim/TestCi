@@ -7,5 +7,13 @@ pipeline {
 ./gradlew clean build --stacktrace'''
       }
     }
+    stage('PostBuild') {
+      steps {
+        sh '''pwd
+ls -alF ./app/build/outputs/apk
+mkdir -p ../release/onnara-mobile
+find . -name \\*.apk -exec cp {} ../release/onnara-mobile \\;'''
+      }
+    }
   }
 }
