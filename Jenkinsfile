@@ -11,8 +11,8 @@ pipeline {
       steps {
         sh '''pwd
 ls -alF ./app/build/outputs/apk
-sudo mkdir -p /home/tnkim/release/onnara-mobile
-sudo find . -name \\*.apk -exec cp {} /home/tnkim/release/onnara-mobile \\;'''
+sudo mkdir -p ../release/onnara-mobile
+sudo find . -name \\*.apk -exec cp {} ../release/onnara-mobile \\;'''
       }
     }
   }
