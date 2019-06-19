@@ -7,10 +7,9 @@ pipeline {
 ./gradlew clean build --stacktrace'''
       }
     }
-    stage('') {
+    stage('PostBuild') {
       steps {
-        sh '''cd /data/jenkins-android-docker/workspace/TestCi_master/app/build/outputs/apk
-ls -alF'''
+        sh 'ls -alF /data/jenkins-android-docker/workspace/TestCi_master/app/build/outputs/apk'
       }
     }
   }
