@@ -8,12 +8,21 @@ pipeline {
       }
     }
     stage('PostBuild') {
-      steps {
-        sh '''pwd
+      parallel {
+        stage('PostBuild') {
+          steps {
+            sh '''pwd
 ls -alF ./app/build/outputs/apk
 mkdir -p ../release/onnara-mobile
 find . -name \\*.apk
 find . -name \\*.apk -exec cp {} ../release/onnara-mobile \\;'''
+          }
+        }
+        stage('PostMsg') {
+          steps {
+            slackSend(baseUrl: 'https://urpsystem.slack.com', channel: 'test-mobile-result', failOnError: true, token: 'qvqwJOg6ElnGvIpZkjnbyWQE', message: 'HI')
+          }
+        }
       }
     }
   }
