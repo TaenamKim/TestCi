@@ -9,7 +9,8 @@ pipeline {
     }
     stage('PostBuild') {
       steps {
-        sh 'ls -alF .'
+        sh '''pwd
+ls -alF .'''
       }
     }
   }
