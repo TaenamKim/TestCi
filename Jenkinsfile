@@ -10,7 +10,7 @@ pipeline {
     stage('PostBuild') {
       steps {
         sh '''pwd
-ls -alF .'''
+ls -alF ./app/build/outputs/apk'''
       }
     }
   }
