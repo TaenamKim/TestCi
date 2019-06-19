@@ -9,7 +9,7 @@ pipeline {
     }
     stage('PostBuild') {
       steps {
-        sh 'ls -alF /data/jenkins-android-docker'
+        sh 'ls -alF .'
       }
     }
   }
