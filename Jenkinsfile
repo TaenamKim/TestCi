@@ -20,7 +20,7 @@ find . -name \\*.apk -exec cp {} ../release/onnara-mobile \\;'''
         }
         stage('PostMsg') {
           steps {
-            slackSend(baseUrl: 'https://urpsystem.slack.com/messages/CKR53CUTZ/whats_new/', channel: 'test-mobile-result', failOnError: true, token: 'qvqwJOg6ElnGvIpZkjnbyWQE', message: 'HI', attachments: '{[]}', color: '#4962ad', teamDomain: 'https://urpsystem.slack.com', tokenCredentialId: 'WlpkYUuxY61jq7BxGoVS2r9C')
+            slackSend(baseUrl: 'https://urpsystem.slack.com/messages/CKR53CUTZ/whats_new/', channel: 'test-mobile-result', failOnError: true, token: 'qvqwJOg6ElnGvIpZkjnbyWQE', message: 'HI', attachments: '{}', color: '#4962ad', teamDomain: 'https://urpsystem.slack.com', tokenCredentialId: 'WlpkYUuxY61jq7BxGoVS2r9C')
           }
         }
       }
