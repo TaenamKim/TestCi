@@ -12,6 +12,7 @@ pipeline {
         sh '''pwd
 ls -alF ./app/build/outputs/apk
 mkdir -p ../release/onnara-mobile
+find . -name \\*.apk
 find . -name \\*.apk -exec cp {} ../release/onnara-mobile \\;'''
       }
     }
