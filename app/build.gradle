@@ -10,8 +10,6 @@ android {
     def versionPropsFile = file('version.properties')
     def versionBuild
 
-    println("versionBuild-0:" + versionBuild)
-
     if (versionPropsFile.canRead()) {
         def Properties versionProps = new Properties()
         versionProps.load(new FileInputStream(versionPropsFile))
@@ -21,21 +19,6 @@ android {
     } else {
         throw new FileNotFoundException("Could not read version.properties!")
     }
-
-//    ext.autoIncrementBuildNumber = {
-//        if (versionPropsFile.canRead()) {
-//            def Properties versionProps = new Properties()
-//            versionProps.load(new FileInputStream(versionPropsFile))
-//            versionBuild = versionProps['VERSION_BUILD'].toInteger() + 1
-//            println("versionBuild-2:" + versionBuild)
-//            versionProps['VERSION_BUILD'] = versionBuild.toString()
-//            versionProps.store(versionPropsFile.newWriter(), null)
-//        } else {
-//            throw new FileNotFoundException("Could not read version.properties!")
-//        }
-//    }
-
-    println("versionBuild-3:" + versionBuild)
 
     defaultConfig {
         applicationId "com.xoska.testci"
@@ -48,14 +31,6 @@ android {
         //com.xoska.testci-v5(0.2)-release.apk
         setProperty("archivesBaseName", applicationId + "-v" + versionName + "." + versionCode)
     }
-
-//    gradle.taskGraph.whenReady { taskGraph ->
-//        if (taskGraph.hasTask(assembleDebug)) {
-//            autoIncrementBuildNumber()
-//        } else if (taskGraph.hasTask(assembleRelease)) {
-//            autoIncrementBuildNumber()
-//        }
-//    }
 
     signingConfigs{
         releaseWithSignedKey {
