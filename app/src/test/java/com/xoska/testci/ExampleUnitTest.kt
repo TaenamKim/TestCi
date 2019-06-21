@@ -17,7 +17,7 @@ class ExampleUnitTest {
 
     @Test
     fun minus_isCorrect() {
-        assertEquals(4, 6 - 2)
+        assertEquals(4, 6 - 3)
     }
 
 }
